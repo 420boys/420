@@ -1,0 +1,1337 @@
+WT
+1.For a Student management system, create a simple form and validate the following using JavaScript • password • e-mail • username validation • mobile number validation Write a program to demonstrate the client and server communication using http request and response. 2.Design a simple form to collect the personal information of a user of a banking application and process the data using GET method Collect the personal information of a user of a Student management system and store the data in MongoDB database and process it using Update and delete operations. 3. Design a simple form to collect the personal information of a user of a banking application and process the data using POST method For a civil construction management application, Design a simple webpages using React JS and navigate from one component to another component 4. For a banking management system, create a simple form and validate the following using JavaScript • password • e-mail • username validation • mobile number validation Write a program to demonstrate the client and server communication using http request and response. 5.Design a simple form to collect the personal information of a student application and process the data using GET method Collect the personal information of a user of a student application system and store the data in MongoDB database. Perform single insertion and bulk insertion using it. 6. Design a simple form to collect the personal information of a student for library application and process the data using POST method For a library management application, Design a simple webpages using React JS and navigate from one component to another component 7.Create a simple form and validate the following using JavaScript • password • e-mail • username validation • mobile number validation Write a program to demonstrate the client and server communication using http request and response. 8. Design a simple form to collect the personal information of a customer for an online shopping application and process the data using GET method Collect the personal information of a user of a customer for an online shopping application and store the data in MongoDB database and process it using getone operation. 9.Design a simple form to collect the personal information of a user of a banking application and process the data using POST method For a student management application, Design a simple webpages using React JS and navigate from one component to another component 10.For a Student management system, create a simple form and validate the following using JavaScript • password • e-mail • username validation • mobile number validation Write a program to demonstrate the client and server communication using http request and response. 11. Write a JavaScript code to create an array called 'scores' containing the scores of students in the class and perform the following operations: • Double each score in the scores array • Filter out the scores which are abive 85 • Calculate the total score and average score Write a JavaScript program to display the factors of the given number. 12. Write a JavaScript program to display the content as "Kongu Engineering College" while you move the mouseout. When performing mousemove, "Kongu Engineering College" should be changed to "KEC". Write JavaScript code to perform any four math operations using callback. 13. Consider an array called subjects which contain five subjects. Write a JavaScript program to show the subjects in a
+
+webpage as an unordered list. You're building an online shopping website. Describe how you would use mouse events to implement a feature where users can move over product images to see a larger version along with the product description. When the user move out of the image then its size should be normal and description has to be disappeared. 14. Create the NodeJS server which consists of pages like home, aboutus and contact, display the content based on the URL. Write a JavaScript program for bank application in which the users transfer money from one account to another. How will use error handling mechanism to handle insufficient balance? 15.
+Write the NodeJS to implement area of circle using GET and POST method Write a query for the following using MongoDB 1. To insert a document in a student collection which has atleast 4 key value pair 2. To update the mark of the student whose name is 'Ram' 3. To count the number of rows in a student collection 16. Discuss the concept of creating web servers with HTTP request and response. Create the NodeJS server to respond back to the client for supermarket. When a client request for "/product" as url to display product information. When a client request for "/ about" as url to display information about supermarket. When a client request for "/contact" as url to display contact number. Design a HTML page which contains a name, emailid and age of a person. Create a server to handle events using GET and POST method. The server needs to respond back to the client at the port number as 8000 to display user information such as name, emailed and age of a person in a web page and explain it. 17. Write the Javascript code to display a alert message when mouse moved over a text. Create a component in React JS that has the following employee information as default props. Emp-Name : String Emp-Id : Number Perform props validation for the above detail and display the same using ReactJS. 18. Write the JavaScript to read the name of the user and display greeting message to user based on the system time when a button is clicked (Example [in case time is before 11AM]: Good morning Raja) Create a component named Employee to display the employee details like name, age, address.
+19. 1. Write the mongodb query to retrieve all the student details 2. Write the mongodb query to
+retrieve the student details in the student collection for the department as CSE 3. Write the mongodb query to retrieve the student details in the student collection whose CGPA is greater than 9 4.Write the mongodb query to retrieve the student details in the student collection whose CGPA is less than equal to 7.5 5.Write the mongodb query to retrieve the IInd year and cse student details in the student collection. 6.Write the mongodb query to retrieve the student details from the student collection who belongs to CSE or EEE Create a module to implement the accces the current date using NodeJS 20. Write a query for the following using MongoDB 1. To insert a document in a student collection which has atleast 4 key value pair 2. To update the mark of the student whose name is 'Ram' 3. To count the number of rows in a student collection
+4. To display the last five documents in a collection 5. To increment the mark of all students by 10
+6. To change the default id of a document while inserting a document in a collection 7. To display name and age of a student from a collection 8. To update the mark of the student whose name is 'Raju' if a document doesn't exist insert into a collection 9. To retrieve document from a collection 10. To delete a student collection from a database Write ExpressJS code to illustrate
+
+the usage of regular expression in providing routes. ChatGPT
+ChatGPT
+To answer your questions one by one, let's start with the first one and proceed sequentially. I will provide the solutions and explanations accordingly.
+Question 1
+Part 1: Form Validation using JavaScript
+Let's create a simple HTML form and validate the following fields: password, e-mail, username, and mobile number.
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System Form</title>
+<script>
+function validateForm() {
+var username = document.forms["studentForm"]["username"].value; var email = document.forms["studentForm"]["email"].value;
+var password = document.forms["studentForm"]["password"].value; var mobile = document.forms["studentForm"]["mobile"].value;
+var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; var mobilePattern = /^[0-9]{10}$/;
+      var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Minimum 8 characters, at least one letter and one number
+
+if (username == "") {
+alert("Username must be filled out"); return false;
+}
+if (!emailPattern.test(email)) { alert("Invalid email format"); return false;
+
+}
+if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long and include at least one letter and one number");
+return false;
+}
+if (!mobilePattern.test(mobile)) { alert("Mobile number must be 10 digits"); return false;
+}
+return true;
+}
+</script>
+</head>
+<body>
+<form name="studentForm" onsubmit="return validateForm()"> Username: <input type="text" name="username"><br><br> Email: <input type="text" name="email"><br><br>
+Password: <input type="password" name="password"><br><br> Mobile: <input type="text" name="mobile"><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+Part 2: Client-Server Communication using HTTP Request and Response
+Let's create a simple client-server communication using HTTP.
+Client-Side (HTML + JavaScript):
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Client-Server Communication</title>
+<script>
+function sendRequest() {
+var xhr = new XMLHttpRequest(); xhr.open("GET", "http://localhost:3000", true); xhr.onreadystatechange = function() {
+if (xhr.readyState == 4 && xhr.status == 200) {
+          document.getElementById("response").innerHTML = xhr.responseText;
+}
+};
+xhr.send();
+}
+</script>
+</head>
+<body>
+<button onclick="sendRequest()">Send Request</button>
+<div id="response"></div>
+</body>
+</html>
+Server-Side (Node.js):
+javascript Copy code
+const http = require('http');
+
+const server = http.createServer((req, res) => { if (req.method === 'GET') {
+res.writeHead(200, {'Content-Type': 'text/plain'}); res.end('Hello, this is the server responding!');
+}
+});
+
+server.listen(3000, () => {
+
+console.log('Server is listening on port 3000');
+});
+Question 2
+Part 1: Form to collect personal information using GET method
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Application Form</title>
+</head>
+<body>
+<form method="GET" action="/process_get">
+Name: <input type="text" name="name"><br><br> Email: <input type="text" name="email"><br><br> Age: <input type="text" name="age"><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+Server-Side (Node.js with Express):
+javascript Copy code
+const express = require('express'); const app = express();
+
+app.get('/process_get', (req, res) => { response = {
+name: req.query.name, email: req.query.email, age: req.query.age
+};
+
+res.end(JSON.stringify(response));
+});
+
+app.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
+Part 2: Collecting and storing user information in MongoDB and processing update and delete operations
+Server-Side (Node.js with Express and MongoDB):
+javascript Copy code
+const express = require('express'); const app = express();
+const MongoClient = require('mongodb').MongoClient; const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+
+const url = 'mongodb://localhost:27017'; const dbName = 'studentManagement'; let db;
+
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+if (err) return console.error(err); db = client.db(dbName);
+console.log(`Connected to database ${dbName}`);
+});
+
+app.post('/add_student', (req, res) => { db.collection('students').insertOne(req.body, (err, result) => {
+if (err) return res.send(err); res.send('Student added successfully');
+});
+
+});
+
+app.put('/update_student/:id', (req, res) => { const studentId = req.params.id; db.collection('students').updateOne({ _id: new
+require('mongodb').ObjectID(studentId) }, { $set: req.body }, (err, result) => { if (err) return res.send(err);
+res.send('Student updated successfully');
+});
+});
+
+app.delete('/delete_student/:id', (req, res) => { const studentId = req.params.id; db.collection('students').deleteOne({ _id: new
+require('mongodb').ObjectID(studentId) }, (err, result) => { if (err) return res.send(err);
+res.send('Student deleted successfully');
+});
+});
+
+app.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
+Question 3
+Part 1: Form to collect personal information using POST method
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Application Form</title>
+
+</head>
+<body>
+<form method="POST" action="/process_post"> Name: <input type="text" name="name"><br><br> Email: <input type="text" name="email"><br><br> Age: <input type="text" name="age"><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+Server-Side (Node.js with Express):
+javascript Copy code
+const express = require('express'); const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true })); app.post('/process_post', (req, res) => {
+response = {
+name: req.body.name, email: req.body.email, age: req.body.age
+};
+res.end(JSON.stringify(response));
+});
+
+app.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
+Part 2: Simple webpages using React JS and navigation for a Civil Construction Management application
+React App (Component-Based Navigation):
+
+First, set up your React application using create-react-app if you haven't already. sh
+Copy code
+npx create-react-app civil-construction-app cd civil-construction-app
+npm start
+App.js:
+javascript Copy code
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'; import Home from './Home';
+import Projects from './Projects'; import Contact from './Contact';
+
+function App() { return (
+<Router>
+<div>
+<nav>
+<ul>
+<li><Link to="/">Home</Link></li>
+<li><Link to="/projects">Projects</Link></li>
+<li><Link to="/contact">Contact</Link></li>
+</ul>
+</nav>
+<Switch>
+<Route path="/" exact component={Home} />
+<Route path="/projects" component={Projects} />
+<Route path="/contact" component={Contact} />
+</Switch>
+</div>
+</Router>
+);
+
+}
+
+export default App;
+Home.js:
+javascript Copy code
+import React from 'react';
+
+function Home() { return (
+<div>
+<h2>Home</h2>
+<p>Welcome
+
+Anonymous
+.Design a simple form to collect the personal information of a user of a banking application and process the data using GET method don't use express
+ChatGPT ChatGPT
+Certainly! Here's a simple example of how you can create a form to collect personal information for a banking application and process the data using the GET method without using Express.
+Client-Side (HTML + JavaScript):
+Create an HTML file (e.g., form.html):
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Application Form</title>
+</head>
+<body>
+<h2>Banking Application Form</h2>
+<form id="bankForm" method="GET" action="/submit_form">
+
+Name: <input type="text" name="name" required><br><br> Email: <input type="email" name="email" required><br><br> Age: <input type="number" name="age" required><br><br>
+<input type="submit" value="Submit">
+</form>
+<div id="response"></div>
+
+<script>
+document.getElementById('bankForm').onsubmit = function(event) { event.preventDefault(); // Prevent the form from submitting the traditional
+
+way
+
+
+const formData = new FormData(this);
+const queryString = new URLSearchParams(formData).toString();
+
+
+
+fetch(`/submit_form?${queryString}`)
+.then(response => response.json())
+.then(data => { document.getElementById('response').innerText =
+JSON.stringify(data);
+})
+.catch(error => console.error('Error:', error));
+};
+</script>
+</body>
+</html>
+Server-Side (Node.js with built-in HTTP module):
+Create a server script (e.g., server.js): javascript
+Copy code
+const http = require('http'); const url = require('url');
+
+const server = http.createServer((req, res) => {
+
+const parsedUrl = url.parse(req.url, true);
+
+if (parsedUrl.pathname === '/submit_form' && req.method === 'GET') { const name = parsedUrl.query.name;
+const email = parsedUrl.query.email; const age = parsedUrl.query.age;
+
+const responseData = { name: name,
+email: email, age: age
+};
+
+res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(responseData));
+} else {
+res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not Found');
+}
+});
+
+server.listen(3000, () => {
+console.log('Server is listening on port 3000');
+});
+How to Run:
+1. Start the server:
+shCopy code
+
+node server.js
+2. 
+
+
+3. Open the HTML file in a browser: Simply open the form.html file in your web browser.
+4. Submit the form: Fill out the form and submit it. The form data will be sent to the server using the GET method, and the server will respond with the data, which will be displayed
+
+on the web page.
+This setup demonstrates a simple client-server interaction where a form is submitted using the GET method, and the server processes the data without using Express.
+
+Anonymous
+{ }
+ChatGPT ChatGPT
+Sure! Let's ensure that we have the form to collect personal information for a banking application and process the data using the GET method. We will use vanilla Node.js without any additional frameworks like Express.
+Client-Side (HTML + JavaScript):
+Here is the HTML form:
+Copy code
+
+
+Anonymous
+Collect the personal information of a user of a Student management system and store the data in MongoDB database and process it using Update and delete operations.
+ChatGPT ChatGPT
+To accomplish this task, we'll create a simple form to collect personal information for a Student Management System, store the data in a MongoDB database, and implement the functionality to update and delete records using Node.js without Express.
+Prerequisites:
+1. Install Node.js and MongoDB.
+2. Install MongoDB Node.js Driver.
+You can install the MongoDB Node.js Driver using npm: sh
+Copy code
+npm install mongodb
+Step 1: Create the HTML form Create a file named index.html: html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+</head>
+<body>
+<h2>Student Management System</h2>
+<form id="studentForm">
+Name: <input type="text" id="name" required><br><br> Email: <input type="email" id="email" required><br><br> Age: <input type="number" id="age" required><br><br>
+<button type="button" onclick="submitForm()">Submit</button>
+</form>
+<h3>Update Student</h3>
+<form id="updateForm">
+Student ID: <input type="text" id="updateId" required><br><br> Name: <input type="text" id="updateName"><br><br>
+Email: <input type="email" id="updateEmail"><br><br> Age: <input type="number" id="updateAge"><br><br>
+<button type="button" onclick="updateStudent()">Update</button>
+</form>
+<h3>Delete Student</h3>
+<form id="deleteForm">
+Student ID: <input type="text" id="deleteId" required><br><br>
+<button type="button" onclick="deleteStudent()">Delete</button>
+</form>
+<div id="response"></div>
+<script>
+function submitForm() {
+const name = document.getElementById('name').value; const email = document.getElementById('email').value; const age = document.getElementById('age').value;
+
+fetch('http://localhost:3000/add_student', {
+
+method: 'POST', headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({ name, email, age })
+})
+.then(response => response.json())
+.then(data => {
+document.getElementById('response').innerText = JSON.stringify(data);
+})
+.catch(error => console.error('Error:', error));
+}
+
+
+function updateStudent() {
+const id = document.getElementById('updateId').value;
+const name = document.getElementById('updateName').value; const email = document.getElementById('updateEmail').value; const age = document.getElementById('updateAge').value;
+
+fetch('http://localhost:3000/update_student/' + id, {
+method: 'PUT', headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({ name, email, age })
+})
+.then(response => response.json())
+.then(data => {
+document.getElementById('response').innerText = JSON.stringify(data);
+})
+.catch(error => console.error('Error:', error));
+}
+
+function deleteStudent() {
+const id = document.getElementById('deleteId').value;
+
+fetch('http://localhost:3000/delete_student/' + id, {
+method: 'DELETE', headers: {
+'Content-Type': 'application/json'
+}
+})
+.then(response => response.json())
+.then(data => {
+document.getElementById('response').innerText = JSON.stringify(data);
+})
+.catch(error => console.error('Error:', error));
+}
+</script>
+</body>
+</html>
+Step 2: Create the Node.js Server
+Create a file named server.js:
+javascript Copy code
+const http = require('http');
+const { MongoClient, ObjectId } = require('mongodb'); const url = require('url');
+
+const client = new MongoClient('mongodb://localhost:27017',
+{ useUnifiedTopology: true }); let db;
+
+client.connect(err => { if (err) throw err;
+db = client.db('studentManagement');
+
+console.log('Connected to MongoDB');
+});
+
+const server = http.createServer((req, res) => { const parsedUrl = url.parse(req.url, true); const pathname = parsedUrl.pathname;
+
+if (req.method === 'POST' && pathname === '/add_student') { let body = '';
+req.on('data', chunk => { body += chunk.toString();
+});
+req.on('end', () => {
+const { name, email, age } = JSON.parse(body); db.collection('students').insertOne({ name, email, age }, (err, result) => {
+if (err) {
+res.writeHead(500, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: 'Failed to add student' }));
+} else {
+res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ message: 'Student added successfully', id:
+result.insertedId }));
+}
+});
+});
+} else if (req.method === 'PUT' && pathname.startsWith('/update_student/')) { const id = pathname.split('/')[2];
+let body = ''; req.on('data', chunk => {
+body += chunk.toString();
+});
+req.on('end', () => {
+const { name, email, age } = JSON.parse(body);
+
+const updateFields = {};
+if (name) updateFields.name = name; if (email) updateFields.email = email; if (age) updateFields.age = age;
+
+db.collection('students').updateOne(
+{ _id: ObjectId(id) },
+{ $set: updateFields }, (err, result) => {
+if (err) {
+res.writeHead(500, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: 'Failed to update student' }));
+} else {
+res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ message: 'Student updated
+successfully' }));
+}
+}
+);
+});
+  } else if (req.method === 'DELETE' && pathname.startsWith('/ delete_student/')) {
+const id = pathname.split('/')[2];
+db.collection('students').deleteOne({ _id: ObjectId(id) }, (err, result) => { if (err) {
+res.writeHead(500, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: 'Failed to delete student' }));
+} else {
+res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ message: 'Student deleted successfully' }));
+}
+});
+} else {
+
+
+
+}
+});
+
+res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not Found');
+
+
+
+server.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
+Step 3: Run the Server
+1. Make sure MongoDB is running.
+2. Start the server: shCopy code
+
+node server.js
+3. 
+
+
+4. Open the index.html file in your web browser.
+Now you can use the form to submit, update, and delete student information, which will be processed by the Node.js server and stored in a MongoDB database.
+
+Anonymous
+. Design a simple form to collect the personal information of a user of a banking application and process the data using POST method
+ChatGPT ChatGPT
+To design a simple form to collect the personal information of a user for a banking application and process the data using the POST method, we'll set up an HTML form and a Node.js server to handle the form submission.
+Client-Side (HTML + JavaScript)
+First, create an HTML file (form.html) with the form for collecting user information: html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Application Form</title>
+</head>
+<body>
+<h2>Banking Application Form</h2>
+<form id="bankForm">
+Name: <input type="text" id="name" required><br><br> Email: <input type="email" id="email" required><br><br> Age: <input type="number" id="age" required><br><br> Account Number: <input type="text" id="accountNumber"
+required><br><br>
+<button type="button" onclick="submitForm()">Submit</button>
+</form>
+<div id="response"></div>
+
+<script>
+function submitForm() {
+const name = document.getElementById('name').value; const email = document.getElementById('email').value; const age = document.getElementById('age').value; const accountNumber =
+document.getElementById('accountNumber').value;
+
+fetch('http://localhost:3000/submit_form', {
+method: 'POST', headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({ name, email, age, accountNumber })
+})
+.then(response => response.json())
+.then(data => {
+document.getElementById('response').innerText = JSON.stringify(data);
+
+})
+.catch(error => console.error('Error:', error));
+}
+</script>
+</body>
+</html>
+Server-Side (Node.js)
+Next, create a Node.js server (server.js) to handle the form submission and process the data: javascript
+Copy code
+const http = require('http');
+const { MongoClient } = require('mongodb');
+
+const client = new MongoClient('mongodb://localhost:27017',
+{ useUnifiedTopology: true }); let db;
+
+client.connect(err => { if (err) throw err;
+db = client.db('bankingApplication'); console.log('Connected to MongoDB');
+});
+
+const server = http.createServer((req, res) => {
+if (req.method === 'POST' && req.url === '/submit_form') { let body = '';
+req.on('data', chunk => { body += chunk.toString();
+});
+req.on('end', () => {
+const { name, email, age, accountNumber } = JSON.parse(body); db.collection('users').insertOne({ name, email, age, accountNumber }, (err,
+result) => {
+
+if (err) {
+res.writeHead(500, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: 'Failed to add user' }));
+} else {
+res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ message: 'User added successfully', id:
+result.insertedId }));
+}
+});
+});
+} else {
+res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not Found');
+}
+});
+
+server.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
+How to Run:
+1. Ensure MongoDB is running on your system.
+2. Save the form.html and server.js files in your project directory.
+3. Install the MongoDB Node.js driver by running:shCopy code
+
+npm install mongodb
+4. 
+
+5. Start the server by running:shCopy code node server.js
+6. 
+
+
+7. Open the form.html file in your web browser.
+Now you can fill out the form and submit it. The form data will be sent to the server using the POST method, and the server will process the data and store it in the MongoDB database. The
+
+response from the server will be displayed on the webpage.
+
+Anonymous
+don't use mongodb make the code simple as possible ChatGPT
+ChatGPT
+Certainly! Here is a simpler version of the code without using MongoDB. Instead, we will store the user information in memory within the Node.js server.
+Client-Side (HTML + JavaScript)
+Create an HTML file (form.html) to collect personal information from the user: html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Application Form</title>
+</head>
+<body>
+<h2>Banking Application Form</h2>
+<form id="bankForm">
+Name: <input type="text" id="name" required><br><br> Email: <input type="email" id="email" required><br><br> Age: <input type="number" id="age" required><br><br> Account Number: <input type="text" id="accountNumber"
+required><br><br>
+<button type="button" onclick="submitForm()">Submit</button>
+</form>
+<div id="response"></div>
+
+<script>
+function submitForm() {
+const name = document.getElementById('name').value; const email = document.getElementById('email').value;
+
+const age = document.getElementById('age').value;
+      const accountNumber = document.getElementById('accountNumber').value;
+
+fetch('http://localhost:3000/submit_form', {
+method: 'POST', headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({ name, email, age, accountNumber })
+})
+.then(response => response.json())
+.then(data => {
+document.getElementById('response').innerText = JSON.stringify(data);
+})
+.catch(error => console.error('Error:', error));
+}
+</script>
+</body>
+</html>
+Server-Side (Node.js)
+Create a simple Node.js server (server.js) to handle the form submission and store the data in memory:
+javascript Copy code
+const http = require('http'); let users = [];
+const server = http.createServer((req, res) => {
+if (req.method === 'POST' && req.url === '/submit_form') { let body = '';
+req.on('data', chunk => {
+
+body += chunk.toString();
+});
+req.on('end', () => {
+const { name, email, age, accountNumber } = JSON.parse(body); const user = { id: users.length + 1, name, email, age, accountNumber }; users.push(user);
+res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ message: 'User added successfully', user }));
+});
+} else {
+res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not Found');
+}
+});
+
+server.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
+How to Run:
+1. Save the form.html and server.js files in your project directory.
+2. Start the server by running:shCopy code
+
+node server.js
+3. 
+
+
+4. Open the form.html file in your web browser.
+Now you can fill out the form and submit it. The form data will be sent to the server using the POST method, and the server will store the data in memory. The response from the server, including the newly added user information, will be displayed on the webpage. This setup is simple and does not involve any database.
+
+Anonymous
+11. Write a JavaScript code to create an array called 'scores' containing the scores of students in the class and perform the following operations: • Double each score in the scores array • Filter out the scores which are abive 85 • Calculate the total score and average score Write a
+
+JavaScript program to display the factors of the given number. ChatGPT
+ChatGPT
+JavaScript Code for Array Operations
+Here's the JavaScript code to create an array called scores, perform the specified operations, and display the factors of a given number:
+Part 1: Array Operations
+javascript Copy code
+// Create an array called 'scores' containing the scores of students in the class const scores = [45, 67, 89, 92, 56, 73, 88, 100];
+
+// Double each score in the scores array
+const doubledScores = scores.map(score => score * 2);
+
+// Filter out the scores which are above 85
+const filteredScores = doubledScores.filter(score => score > 85);
+
+// Calculate the total score and average score
+const totalScore = filteredScores.reduce((total, score) => total + score, 0); const averageScore = totalScore / filteredScores.length;
+
+// Display results
+console.log('Original Scores:', scores); console.log('Doubled Scores:', doubledScores); console.log('Filtered Scores (above 85):', filteredScores); console.log('Total Score:', totalScore); console.log('Average Score:', averageScore);
+Part 2: Display Factors of a Given Number
+Here's the JavaScript program to display the factors of a given number: javascript
+Copy code
+// Function to display the factors of a given number function displayFactors(num) {
+if (num <= 0) {
+
+console.log('Please enter a positive integer.'); return;
+}
+
+
+const factors = [];
+for (let i = 1; i <= num; i++) { if (num % i === 0) {
+factors.push(i);
+}
+}
+
+
+console.log(`Factors of ${num}:`, factors.join(', '));
+}
+
+
+// Example usage:
+const number = 28; displayFactors(number); Full Combined Code
+Here's the combined code for both tasks:
+javascript Copy code
+// Part 1: Array Operations
+
+// Create an array called 'scores' containing the scores of students in the class const scores = [45, 67, 89, 92, 56, 73, 88, 100];
+
+// Double each score in the scores array
+const doubledScores = scores.map(score => score * 2);
+
+// Filter out the scores which are above 85
+const filteredScores = doubledScores.filter(score => score > 85);
+
+// Calculate the total score and average score
+
+const totalScore = filteredScores.reduce((total, score) => total + score, 0); const averageScore = totalScore / filteredScores.length;
+
+// Display results
+console.log('Original Scores:', scores); console.log('Doubled Scores:', doubledScores); console.log('Filtered Scores (above 85):', filteredScores); console.log('Total Score:', totalScore); console.log('Average Score:', averageScore);
+
+// Part 2: Display Factors of a Given Number
+
+// Function to display the factors of a given number function displayFactors(num) {
+if (num <= 0) {
+console.log('Please enter a positive integer.'); return;
+}
+
+const factors = [];
+for (let i = 1; i <= num; i++) { if (num % i === 0) {
+factors.push(i);
+}
+}
+
+
+console.log(`Factors of ${num}:`, factors.join(', '));
+}
+
+
+// Example usage: const number = 28;
+displayFactors(number); Explanation
+
+1. Array Operations:
+? The scores array contains student scores.
+? doubledScores is created by doubling each score in the scores array using the map method.
+? filteredScores filters out the scores from doubledScores that are above 85 using the filter method.
+? totalScore is calculated using the reduce method to sum up the filteredScores.
+? averageScore is calculated by dividing totalScore by the length of filteredScores.
+2. Factors of a Given Number:
+? The displayFactors function takes a number as input and checks if the number is positive.
+? It then finds and prints all factors of the number by iterating from 1 to the number itself and checking divisibility.
+You can run the combined code in any JavaScript environment, such as a web browser console or Node.js.
+
+Anonymous
+Write a JavaScript program to display the content as "Kongu Engineering College" while you move the mouseout. When performing mousemove, "Kongu Engineering College" should be changed to "KEC". Write JavaScript code to perform any four math operations using callback ChatGPT
+ChatGPT
+Part 1: Mouse Events to Change Content
+Here's the JavaScript program to change the content based on mouse events: html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse Events Example</title>
+<style> #text {
+font-size: 24px; margin: 50px;
+}
+</style>
+
+</head>
+<body>
+<div id="text">Kongu Engineering College</div>
+
+<script>
+const textDiv = document.getElementById('text');
+
+textDiv.addEventListener('mousemove', () => { textDiv.textContent = 'KEC';
+});
+
+textDiv.addEventListener('mouseout', () => { textDiv.textContent = 'Kongu Engineering College';
+});
+</script>
+</body>
+</html> Explanation:
+1. The textDiv variable selects the div element containing the text.
+2. The mousemove event listener changes the text content to "KEC" when the mouse moves over the div.
+3. The mouseout event listener changes the text content back to "Kongu Engineering College" when the mouse leaves the div.
+Part 2: Math Operations Using Callbacks
+Here's the JavaScript code to perform four math operations using callbacks: javascript
+Copy code
+function add(a, b, callback) { const result = a + b; callback(result);
+}
+
+function subtract(a, b, callback) { const result = a - b;
+
+callback(result);
+}
+
+
+function multiply(a, b, callback) { const result = a * b; callback(result);
+}
+
+function divide(a, b, callback) { if (b !== 0) {
+const result = a / b; callback(result);
+} else {
+callback('Error: Division by zero');
+}
+}
+
+
+// Callback function to display result function displayResult(result) {
+console.log('Result:', result);
+}
+
+// Perform operations
+add(10, 5, displayResult);	// 15
+subtract(10, 5, displayResult); // 5
+multiply(10, 5, displayResult); // 50
+divide(10, 5, displayResult);	// 2 Explanation:
+1. Addition: The add function takes two numbers and a callback function, computes the sum, and calls the callback with the result.
+2. Subtraction: The subtract function works similarly but computes the difference.
+3. Multiplication: The multiply function computes the product.
+4. Division: The divide function computes the quotient, but first checks for division by zero and handles it by calling the callback with an error message if the divisor is zero.
+
+The displayResult function is used as the callback to log the result to the console. The math operations are performed by calling the respective functions with numbers and the callback.
+
+Anonymous
+. Consider an array called subjects which contain five subjects. Write a JavaScript program to show the subjects in a webpage as an unordered list. You're building an online shopping website. Describe how you would use mouse events to implement a feature where users can move over product images to see a larger version along with the product description. When the user move out of the image then its size should be normal and description has to be disappeared.
+ChatGPT ChatGPT
+Part 1: Display Subjects as an Unordered List
+Here's the JavaScript program to display subjects in a webpage as an unordered list: html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subjects List</title>
+</head>
+<body>
+<h2>Subjects</h2>
+<ul id="subjectsList"></ul>
+
+<script>
+    const subjects = ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'Computer Science'];
+const subjectsList = document.getElementById('subjectsList');
+
+subjects.forEach(subject => {
+const li = document.createElement('li'); li.textContent = subject; subjectsList.appendChild(li);
+
+});
+</script>
+</body>
+</html> Explanation:
+1. The subjects array contains five subjects.
+2. The subjectsList variable selects the unordered list (<ul>) element in the HTML.
+3. The forEach method iterates through each subject in the subjects array.
+4. For each subject, a new list item (<li>) is created, its text content is set to the subject, and it is appended to the unordered list.
+Part 2: Mouse Events for Enlarging Product Images
+For an online shopping website, here's how to implement a feature where users can hover over product images to see a larger version along with the product description:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Images</title>
+<style>
+.product {
+display: inline-block; margin: 20px;
+text-align: center;
+}
+.product img { width: 200px; height: 200px;
+transition: all 0.3s ease;
+}
+.product-description { display: none; margin-top: 10px;
+
+}
+</style>
+</head>
+<body>
+<div class="product">
+    <img src="product1.jpg" alt="Product 1" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
+<div class="product-description">This is Product 1.</div>
+</div>
+<div class="product">
+    <img src="product2.jpg" alt="Product 2" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
+<div class="product-description">This is Product 2.</div>
+</div>
+
+<script>
+function showDescription(img) { img.style.width = '400px'; img.style.height = '400px';
+const description = img.nextElementSibling; description.style.display = 'block';
+}
+
+function hideDescription(img) { img.style.width = '200px'; img.style.height = '200px';
+const description = img.nextElementSibling; description.style.display = 'none';
+}
+</script>
+</body>
+</html> Explanation:
+
+1. HTML Structure: Each product consists of a div with the class product. Inside each div, there is an img element for the product image and a div element for the product description.
+2. CSS:
+? The .product img selector styles the images to have a default size of 200px by 200px.
+? The .product-description selector hides the description by default.
+3. JavaScript:
+? The showDescription function enlarges the image and displays the description when the mouse is over the image.
+? The hideDescription function restores the image to its normal size and hides the description when the mouse leaves the image.
+? The onmouseover and onmouseout event handlers are used on the img elements to trigger these functions.
+This approach ensures that users can see a larger version of the product image and its description when they hover over it, and revert to the normal view when they move the mouse away.
+
+Anonymous
+Create the NodeJS server which consists of pages like home, aboutus and contact, display the content based on the URL. Write a JavaScript program for bank application in which the users transfer money from one account to another. How will use error handling mechanism to handle insufficient balance?
+ChatGPT ChatGPT
+Node.js Server with Pages: Home, About Us, and Contact
+Here's a simple Node.js server that serves different content based on the URL: javascript
+Copy code
+const http = require('http'); const fs = require('fs');
+
+const server = http.createServer((req, res) => {
+// Set content type to HTML
+res.writeHead(200, {'Content-Type': 'text/html'});
+
+// Routing based on URL
+if (req.url === '/' || req.url === '/home') { fs.readFile('home.html', (err, data) => {
+
+if (err) { res.writeHead(404);
+res.end('Error: File Not Found');
+} else {
+res.end(data);
+}
+});
+} else if (req.url === '/aboutus') { fs.readFile('aboutus.html', (err, data) => {
+if (err) { res.writeHead(404);
+res.end('Error: File Not Found');
+} else {
+res.end(data);
+}
+});
+} else if (req.url === '/contact') { fs.readFile('contact.html', (err, data) => {
+if (err) { res.writeHead(404);
+res.end('Error: File Not Found');
+} else {
+res.end(data);
+}
+});
+} else {
+res.writeHead(404); res.end('Error: Page Not Found');
+}
+});
+
+server.listen(3000, () => {
+console.log('Server is running on port 3000');
+
+});
+Explanation:
+? This server listens on port 3000.
+? It routes requests based on the URL path.
+? If the URL is /, /home, /aboutus, or /contact, it reads the corresponding HTML file and serves it.
+? If the URL doesn't match any of these paths, it returns a 404 error.
+Bank Application with Error Handling for Insufficient Balance
+Here's a JavaScript program for a bank application that includes error handling for insufficient balance during money transfer:
+javascript Copy code
+class BankAccount { constructor(accountNumber, balance) {
+this.accountNumber = accountNumber; this.balance = balance;
+}
+
+transferMoney(amount, recipientAccount) { if (this.balance < amount) {
+throw new Error('Insufficient balance');
+}
+
+
+this.balance -= amount; recipientAccount.balance += amount;
+}
+}
+
+
+// Example usage:
+const account1 = new BankAccount('123456', 1000); const account2 = new BankAccount('654321', 500);
+
+try {
+  account1.transferMoney(1500, account2); // Attempt to transfer more than balance
+
+} catch (error) {
+console.log(error.message); // Output: Insufficient balance
+}
+
+console.log('Account 1 Balance:', account1.balance); // Output: 1000 (unchanged) console.log('Account 2 Balance:', account2.balance); // Output: 500 (unchanged) Explanation:
+? The BankAccount class represents a bank account with an account number and balance.
+? The transferMoney method transfers money from the current account to the recipient account.
+? If the balance is insufficient, it throws an error.
+? In the example usage, an attempt is made to transfer more money than the balance of account1, which triggers the error handling mechanism.
+? The balances of both accounts remain unchanged after the failed transfer attempt.
+
+Anonymous
+make the bank application code using function ChatGPT
+ChatGPT
+Sure, here's a simplified version of the bank application code using functions: javascript
+Copy code
+function transferMoney(senderAccount, recipientAccount, amount) { if (senderAccount.balance < amount) {
+throw new Error('Insufficient balance');
+}
+
+
+senderAccount.balance -= amount; recipientAccount.balance += amount;
+}
+
+
+// Example usage:
+function BankAccount(accountNumber, balance) { return {
+accountNumber, balance
+
+};
+}
+
+
+const account1 = BankAccount('123456', 1000); const account2 = BankAccount('654321', 500);
+
+try {
+  transferMoney(account1, account2, 1500); // Attempt to transfer more than balance
+} catch (error) {
+console.log(error.message); // Output: Insufficient balance
+}
+
+console.log('Account 1 Balance:', account1.balance); // Output: 1000 (unchanged) console.log('Account 2 Balance:', account2.balance); // Output: 500 (unchanged) In this version:
+? The transferMoney function takes the sender's account, recipient's account, and the amount to transfer.
+? If the sender's balance is less than the amount to transfer, it throws an error.
+? Otherwise, it deducts the amount from the sender's balance and adds it to the recipient's balance.
+? The BankAccount function acts as a constructor function to create bank account objects with properties for account number and balance.
+? Example usage demonstrates transferring money between accounts and handling errors for insufficient balance.
+
+Anonymous
+Write the NodeJS to implement area of circle using GET and POST method Write a query for the following using MongoDB 1. To insert a document in a student collection which has atleast 4 key value pair 2. To update the mark of the student whose name is 'Ram' 3. To count the number of rows in a student collection 1
+ChatGPT ChatGPT
+Node.js Implementation for Area of Circle using GET and POST Methods Here's a Node.js server implementation to calculate the area of a circle using both GET and POST methods:
+javascript
+
+Copy code
+const http = require('http'); const url = require('url');
+
+const server = http.createServer((req, res) => { const parsedUrl = url.parse(req.url, true); const pathName = parsedUrl.pathname; const queryData = parsedUrl.query;
+
+if (pathName === '/calculate_area' && req.method === 'GET') { const radius = parseFloat(queryData.radius);
+const area = Math.PI * radius * radius; res.writeHead(200, { 'Content-Type': 'text/plain' }); res.end(`Area of circle with radius ${radius} is: ${area}`);
+} else if (pathName === '/calculate_area' && req.method === 'POST') { let body = '';
+req.on('data', chunk => { body += chunk.toString();
+});
+req.on('end', () => {
+const postData = JSON.parse(body);
+const radius = parseFloat(postData.radius); const area = Math.PI * radius * radius;
+res.writeHead(200, { 'Content-Type': 'text/plain' }); res.end(`Area of circle with radius ${radius} is: ${area}`);
+});
+} else {
+res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Page not found');
+}
+});
+
+server.listen(3000, () => {
+
+console.log('Server is running on port 3000');
+});
+Explanation:
+? This Node.js server listens on port 3000.
+? It handles requests for the /calculate_area route.
+? For GET requests, it parses the radius from the query string and calculates the area of the circle.
+? For POST requests, it parses the radius from the request body (assumed to be JSON format) and calculates the area.
+? The result is sent back to the client as a plain text response.
+MongoDB Queries
+Here are the MongoDB queries for your specified tasks:
+1. To insert a document in a student collection which has at least 4 key-value pairs: javascriptCopy code
+
+db.students.insertOne({
+2. name: 'John Doe',
+3. age: 20,
+4. department: 'Computer Science',
+5. marks: { math: 85, physics: 78, chemistry: 90 }
+6. });
+7.
+
+
+8. To update the mark of the student whose name is 'Ram': javascriptCopy code
+
+db.students.updateOne(
+9. { name: 'Ram' },
+10. { $set: { marks: { math: 90, physics: 85, chemistry: 88 } } }
+11.  );
+12.
+
+
+13. To count the number of rows in a student collection: javascriptCopy code
+
+db.students.countDocuments();
+14.
+
+
+
+These MongoDB queries should be executed in a MongoDB shell or through a MongoDB client to
+
+interact with the database. Adjust the collection name and document structure as per your actual data schema.
+
+Anonymous
+Discuss the concept of creating web servers with HTTP request and response. Create the NodeJS server to respond back to the client for supermarket. When a client request for "/ product" as url to display product information. When a client request for "/about" as url to display information about supermarket. When a client request for "/contact" as url to display contact number. Design a HTML page which contains a name, emailid and age of a person. Create a server to handle events using GET and POST method. The server needs to respond back to the client at the port number as 8000 to display user information such as name, emailed and age of a person in a web page and explain it.
+ChatGPT ChatGPT
+Concept of Creating Web Servers with HTTP Request and Response
+When you create a web server, you're essentially building a software application that listens for incoming HTTP requests from clients (such as web browsers) and sends back HTTP responses. Here's a brief overview of the concept:
+1. HTTP Request:
+? Clients (such as web browsers) send HTTP requests to web servers to request resources (like web pages, images, etc.) using URLs.
+? The request includes various information, such as the HTTP method (GET, POST, etc.), headers, and sometimes a request body.
+? Common HTTP methods include GET (to request data), POST (to submit data), PUT (to update data), DELETE (to delete data), etc.
+2. HTTP Response:
+? Web servers process the incoming requests and generate appropriate responses.
+? The response includes a status code indicating the outcome of the request (e.g., 200 for success, 404 for not found, etc.), headers, and a response body (which can contain HTML, JSON, images, etc.).
+3. Node.js Server:
+? In Node.js, you can create web servers using the built-in http module.
+? You define a callback function that gets called whenever a request is received by the server.
+? Inside the callback function, you handle the request, generate the response, and send it back to the client.
+Node.js Server for Supermarket Information
+Here's a Node.js server that responds to different URLs with information about a supermarket: javascript
+Copy code
+const http = require('http');
+
+const server = http.createServer((req, res) => { if (req.url === '/product') {
+res.writeHead(200, { 'Content-Type': 'text/plain' });
+res.end('Product information: ...'); // Placeholder for product information
+} else if (req.url === '/about') {
+res.writeHead(200, { 'Content-Type': 'text/plain' });
+res.end('About the supermarket: ...'); // Placeholder for about information
+} else if (req.url === '/contact') {
+res.writeHead(200, { 'Content-Type': 'text/plain' });
+res.end('Contact information: ...'); // Placeholder for contact information
+} else {
+res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Page not found');
+}
+});
+
+server.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
+HTML Page for User Information
+Here's an HTML page that contains fields for name, email, and age of a person: html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Information</title>
+</head>
+<body>
+<form id="userInfoForm">
+
+<label for="name">Name:</label>
+<input type="text" id="name" name="name"><br><br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email"><br><br>
+<label for="age">Age:</label>
+<input type="number" id="age" name="age"><br><br>
+<button type="button" onclick="submitForm()">Submit</button>
+</form>
+<div id="userInfo"></div>
+
+<script>
+function submitForm() {
+const name = document.getElementById('name').value; const email = document.getElementById('email').value; const age = document.getElementById('age').value;
+
+fetch('http://localhost:8000/userInfo', {
+method: 'POST', headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({ name, email, age })
+})
+.then(response => response.text())
+.then(data => { document.getElementById('userInfo').innerText = data;
+})
+.catch(error => console.error('Error:', error));
+}
+</script>
+</body>
+</html>
+Node.js Server to Handle Events with GET and POST Methods
+
+Here's a Node.js server that handles GET and POST requests to display user information: javascript
+Copy code
+const http = require('http'); const url = require('url');
+const qs = require('querystring');
+
+const server = http.createServer((req, res) => { const parsedUrl = url.parse(req.url, true); const pathName = parsedUrl.pathname;
+
+if (pathName === '/userInfo' && req.method === 'POST') { let body = '';
+req.on('data', chunk => { body += chunk.toString();
+});
+req.on('end', () => {
+const userData = qs.parse(body); const { name, email, age } = userData;
+const userInfo = `Name: ${name}, Email: ${email}, Age: ${age}`; res.writeHead(200, { 'Content-Type
+
+Anonymous
+Write the Javascript code to display a alert message when mouse moved over a text. Create a component in React JS that has the following employee information as default props. Emp- Name : String Emp-Id : Number Perform props validation for the above detail and display the same using ReactJS.
+ChatGPT ChatGPT
+Sure, here's the JavaScript code to display an alert message when the mouse moves over a text: html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse Over Alert</title>
+</head>
+<body>
+<p id="hoverText">Move mouse over this text.</p>
+
+<script>
+const textElement = document.getElementById('hoverText');
+
+textElement.addEventListener('mouseover', () => { alert('Mouse moved over the text!');
+});
+</script>
+</body>
+</html>
+And here's a React component with default props and props validation for employee information: jsx
+Copy code
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const EmployeeInfo = ({ empName, empId }) => { return (
+<div>
+<h2>Employee Information</h2>
+<p>Name: {empName}</p>
+<p>Employee ID: {empId}</p>
+</div>
+);
+};
+
+
+EmployeeInfo.defaultProps = {
+
+empName: 'John Doe', empId: 12345
+};
+
+
+EmployeeInfo.propTypes = {
+empName: PropTypes.string.isRequired, empId: PropTypes.number.isRequired
+};
+
+export default EmployeeInfo;
+
+Anonymous
+Write the JavaScript to read the name of the user and display greeting message to user based on the system time when a button is clicked (Example [in case time is before 11AM]: Good morning Raja) Create a component named Employee to display the employee details like name, age, address.
+ChatGPT ChatGPT
+Here's the JavaScript code to read the name of the user and display a greeting message based on the system time when a button is clicked:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greeting Message</title>
+</head>
+<body>
+<label for="nameInput">Enter your name:</label>
+<input type="text" id="nameInput">
+<button onclick="displayGreeting()">Display Greeting</button>
+
+<script>
+
+function displayGreeting() {
+const name = document.getElementById('nameInput').value; const now = new Date();
+const hour = now.getHours(); let greeting;
+
+if (hour < 11) {
+greeting = 'Good morning';
+} else if (hour < 17) {
+greeting = 'Good afternoon';
+} else {
+greeting = 'Good evening';
+}
+
+
+alert(`${greeting}, ${name}!`);
+}
+</script>
+</body>
+</html>
+And here's a React component named Employee to display the employee details like name, age, and address:
+jsx
+Copy code
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const Employee = ({ name, age, address }) => { return (
+<div>
+<h2>Employee Details</h2>
+<p>Name: {name}</p>
+<p>Age: {age}</p>
+<p>Address: {address}</p>
+</div>
+);
+
+};
+
+Employee.propTypes = {
+name: PropTypes.string.isRequired, age: PropTypes.number.isRequired, address: PropTypes.string.isRequired
+};
+
+export default Employee;
